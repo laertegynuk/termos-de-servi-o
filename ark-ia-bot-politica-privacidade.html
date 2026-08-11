@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Política de Privacidade do ARK IA Bot para Discord." />
+  <title>Política de Privacidade | ARK IA Bot</title>
+  <style>
+    :root{
+      --bg:#071015;
+      --panel:#0d1820;
+      --panel-2:#101f29;
+      --text:#e9f7fb;
+      --muted:#9fb8c3;
+      --cyan:#29e6ff;
+      --green:#79ff6a;
+      --border:rgba(41,230,255,.18);
+      --shadow:0 24px 60px rgba(0,0,0,.35);
+    }
+
+    *{box-sizing:border-box}
+
+    html{scroll-behavior:smooth}
+
+    body{
+      margin:0;
+      font-family:Inter,Segoe UI,Roboto,Arial,sans-serif;
+      background:
+        radial-gradient(circle at 15% 10%, rgba(41,230,255,.09), transparent 24rem),
+        radial-gradient(circle at 85% 0%, rgba(121,255,106,.06), transparent 22rem),
+        var(--bg);
+      color:var(--text);
+      line-height:1.7;
+    }
+
+    .wrap{
+      width:min(980px, calc(100% - 32px));
+      margin:auto;
+    }
+
+    header{
+      padding:64px 0 28px;
+      text-align:center;
+    }
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:8px 14px;
+      border:1px solid var(--border);
+      border-radius:999px;
+      color:var(--cyan);
+      background:rgba(41,230,255,.05);
+      font-weight:700;
+      letter-spacing:.08em;
+      font-size:.82rem;
+      text-transform:uppercase;
+    }
+
+    h1{
+      margin:20px 0 10px;
+      font-size:clamp(2rem, 6vw, 4.3rem);
+      line-height:1;
+      letter-spacing:-.04em;
+    }
+
+    .subtitle{
+      color:var(--muted);
+      max-width:720px;
+      margin:0 auto;
+      font-size:1.03rem;
+    }
+
+    .meta{
+      margin-top:18px;
+      color:#82a1ad;
+      font-size:.92rem;
+    }
+
+    nav{
+      margin:28px 0;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      justify-content:center;
+    }
+
+    nav a{
+      color:var(--text);
+      text-decoration:none;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.025);
+      padding:8px 12px;
+      border-radius:10px;
+      font-size:.9rem;
+    }
+
+    nav a:hover{
+      border-color:rgba(41,230,255,.45);
+      color:var(--cyan);
+    }
+
+    main{
+      background:linear-gradient(180deg, rgba(16,31,41,.97), rgba(9,20,27,.98));
+      border:1px solid var(--border);
+      border-radius:24px;
+      box-shadow:var(--shadow);
+      padding:clamp(22px, 5vw, 52px);
+      margin-bottom:40px;
+    }
+
+    section{
+      padding:8px 0 22px;
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+
+    section:last-child{border-bottom:none}
+
+    h2{
+      color:var(--cyan);
+      margin:20px 0 10px;
+      font-size:1.35rem;
+    }
+
+    p{margin:10px 0}
+
+    ul{padding-left:22px}
+
+    li{margin:6px 0}
+
+    strong{color:#fff}
+
+    .notice{
+      border-left:4px solid var(--green);
+      background:rgba(121,255,106,.05);
+      padding:15px 18px;
+      border-radius:0 12px 12px 0;
+      margin:22px 0;
+    }
+
+    .contact{
+      background:rgba(41,230,255,.04);
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:18px;
+    }
+
+    .placeholder{
+      color:#ffd37a;
+      font-weight:700;
+    }
+
+    footer{
+      text-align:center;
+      color:#78919b;
+      padding:0 16px 42px;
+      font-size:.9rem;
+    }
+
+    .brand{
+      color:var(--cyan);
+      font-weight:800;
+    }
+
+    @media (max-width:600px){
+      header{padding-top:42px}
+      main{border-radius:18px}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <div class="badge">🤖 ARK IA BOT</div>
+      <h1>Política de Privacidade</h1>
+      <p class="subtitle">
+        Saiba como o ARK IA Bot coleta, utiliza, armazena e protege informações necessárias para operar seus recursos no Discord e em comunidades de ARK: Survival Ascended.
+      </p>
+      <div class="meta">Última atualização: 11 de agosto de 2026</div>
+
+      <nav aria-label="Navegação">
+        <a href="#introducao">Introdução</a>
+        <a href="#dados">Dados coletados</a>
+        <a href="#uso">Como usamos</a>
+        <a href="#ia">Inteligência Artificial</a>
+        <a href="#retencao">Retenção</a>
+        <a href="#direitos">Seus direitos</a>
+        <a href="#contato">Contato</a>
+      </nav>
+    </header>
+
+    <main>
+      <div class="notice">
+        Esta Política de Privacidade explica como o <strong>ARK IA Bot</strong> trata informações durante a utilização de seus recursos. Ao utilizar o bot, você reconhece as práticas descritas neste documento.
+      </div>
+
+      <section id="introducao">
+        <h2>1. Introdução</h2>
+        <p>O ARK IA Bot é uma ferramenta independente desenvolvida para auxiliar comunidades e servidores relacionados ao <strong>ARK: Survival Ascended</strong> dentro do Discord.</p>
+        <p>Esta Política de Privacidade descreve quais informações podem ser processadas pelo bot, por que elas são necessárias, como podem ser armazenadas e quais medidas são adotadas para proteger os dados.</p>
+        <p>O tratamento de dados poderá variar de acordo com os recursos habilitados pelo administrador de cada servidor Discord.</p>
+      </section>
+
+      <section id="dados">
+        <h2>2. Dados que podemos processar</h2>
+        <p>Para fornecer suas funcionalidades, o ARK IA Bot poderá processar informações disponibilizadas pelo Discord ou fornecidas diretamente pelos usuários e administradores.</p>
+        <p>Dependendo das funcionalidades utilizadas, isso poderá incluir:</p>
+        <ul>
+          <li>ID do usuário do Discord;</li>
+          <li>nome de usuário, nome de exibição e informações públicas relacionadas à conta;</li>
+          <li>ID do servidor Discord;</li>
+          <li>ID de canais e cargos;</li>
+          <li>comandos e interações enviados ao bot;</li>
+          <li>mensagens enviadas diretamente ao bot ou utilizadas em funcionalidades de inteligência artificial;</li>
+          <li>configurações definidas pelos administradores do servidor;</li>
+          <li>registros técnicos necessários para diagnóstico, segurança e prevenção de abuso;</li>
+          <li>informações relacionadas a servidores ARK quando uma integração correspondente estiver habilitada.</li>
+        </ul>
+        <p>O ARK IA Bot procura limitar o processamento às informações necessárias para oferecer e proteger suas funcionalidades.</p>
+      </section>
+
+      <section>
+        <h2>3. Dados relacionados ao ARK</h2>
+        <p>Quando houver integração com servidores de ARK: Survival Ascended, o bot poderá processar informações técnicas fornecidas pelo servidor ou por ferramentas administrativas autorizadas.</p>
+        <p>Essas informações poderão incluir, conforme a configuração:</p>
+        <ul>
+          <li>nome e status do servidor;</li>
+          <li>mapa atualmente utilizado;</li>
+          <li>quantidade ou lista de jogadores conectados;</li>
+          <li>identificadores utilizados pelo servidor do jogo;</li>
+          <li>eventos e registros de atividade;</li>
+          <li>logs técnicos e administrativos;</li>
+          <li>estatísticas e informações necessárias para comandos ou sistemas de suporte.</li>
+        </ul>
+        <p>O acesso a essas informações dependerá das integrações e permissões configuradas pelo responsável pelo servidor.</p>
+      </section>
+
+      <section id="uso">
+        <h2>4. Como utilizamos as informações</h2>
+        <p>As informações processadas poderão ser utilizadas para:</p>
+        <ul>
+          <li>executar comandos solicitados pelos usuários;</li>
+          <li>fornecer respostas e recursos de inteligência artificial;</li>
+          <li>manter configurações específicas de cada servidor Discord;</li>
+          <li>fornecer ferramentas de suporte e administração;</li>
+          <li>consultar informações de servidores ARK integrados;</li>
+          <li>detectar abuso, spam, falhas e atividades potencialmente maliciosas;</li>
+          <li>diagnosticar erros e melhorar a estabilidade do serviço;</li>
+          <li>proteger usuários, administradores e a infraestrutura do bot;</li>
+          <li>cumprir obrigações legais aplicáveis.</li>
+        </ul>
+        <p>Os dados não devem ser utilizados para finalidades incompatíveis com aquelas necessárias ao funcionamento e à segurança do ARK IA Bot.</p>
+      </section>
+
+      <section id="ia">
+        <h2>5. Inteligência Artificial</h2>
+        <p>Alguns recursos do ARK IA Bot poderão utilizar serviços de inteligência artificial para interpretar solicitações, analisar informações e produzir respostas.</p>
+        <p>Quando um usuário utilizar uma funcionalidade de IA, o conteúdo necessário para responder à solicitação poderá ser processado pelo sistema de inteligência artificial utilizado pelo bot.</p>
+        <p>Dependendo da arquitetura adotada, esse processamento poderá envolver provedores externos. Nesses casos, o tratamento realizado pelo provedor também estará sujeito às políticas e condições aplicáveis ao respectivo serviço.</p>
+        <p>Recomendamos que usuários não enviem senhas, tokens, chaves de API, credenciais, documentos pessoais ou outras informações confidenciais em conversas com o bot.</p>
+      </section>
+
+      <section>
+        <h2>6. Compartilhamento de informações</h2>
+        <p>O ARK IA Bot não deve vender informações pessoais de seus usuários.</p>
+        <p>Informações poderão ser processadas ou compartilhadas com prestadores de serviços somente quando necessário para operar funcionalidades do bot, incluindo, por exemplo:</p>
+        <ul>
+          <li>Discord e sua infraestrutura;</li>
+          <li>provedores de hospedagem;</li>
+          <li>provedores de banco de dados;</li>
+          <li>serviços de inteligência artificial;</li>
+          <li>APIs e integrações necessárias às funcionalidades habilitadas.</li>
+        </ul>
+        <p>Informações também poderão ser divulgadas quando exigido por lei, ordem judicial ou solicitação válida de autoridade competente, observadas as obrigações legais aplicáveis.</p>
+      </section>
+
+      <section id="retencao">
+        <h2>7. Armazenamento e retenção</h2>
+        <p>Nem todas as informações processadas pelo ARK IA Bot precisam ser armazenadas permanentemente.</p>
+        <p>Dados poderão ser mantidos pelo período necessário para fornecer funcionalidades, preservar configurações, investigar falhas, prevenir abuso, proteger a infraestrutura ou cumprir obrigações legais.</p>
+        <p>Registros técnicos poderão possuir períodos de retenção diferentes conforme sua finalidade.</p>
+        <p>Quando informações deixarem de ser necessárias, poderão ser excluídas, anonimizadas ou agregadas, conforme tecnicamente apropriado e permitido pela legislação aplicável.</p>
+      </section>
+
+      <section>
+        <h2>8. Segurança das informações</h2>
+        <p>São adotadas medidas técnicas e organizacionais razoáveis destinadas a reduzir riscos de acesso não autorizado, alteração, divulgação ou perda das informações processadas pelo ARK IA Bot.</p>
+        <p>Essas medidas poderão incluir controle de acesso, limitação de permissões, proteção de credenciais, registros de segurança e atualização da infraestrutura.</p>
+        <p>Apesar dessas medidas, nenhum sistema conectado à internet pode garantir segurança absoluta.</p>
+      </section>
+
+      <section id="direitos">
+        <h2>9. Direitos e solicitações dos usuários</h2>
+        <p>Dependendo da legislação aplicável, usuários poderão possuir direitos relacionados aos seus dados pessoais, incluindo solicitar informações sobre o tratamento, correção ou exclusão de determinados dados.</p>
+        <p>Solicitações poderão ser encaminhadas através dos canais de contato indicados nesta Política.</p>
+        <p>Para proteger os usuários contra solicitações fraudulentas, poderá ser necessário verificar razoavelmente a identidade ou a relação do solicitante com a conta Discord correspondente antes de atender determinados pedidos.</p>
+      </section>
+
+      <section>
+        <h2>10. Exclusão de dados</h2>
+        <p>Quando aplicável, o usuário poderá solicitar a exclusão de dados pessoais armazenados pelo ARK IA Bot.</p>
+        <p>Administradores também poderão solicitar a remoção de configurações ou informações relacionadas ao servidor Discord que administram, quando tecnicamente possível.</p>
+        <p>Algumas informações poderão ser mantidas quando necessário para segurança, prevenção de fraude, resolução de disputas ou cumprimento de obrigação legal.</p>
+      </section>
+
+      <section>
+        <h2>11. Dados de menores</h2>
+        <p>O ARK IA Bot não é destinado a contornar os requisitos de idade estabelecidos pelo Discord.</p>
+        <p>Os usuários devem atender aos requisitos mínimos de idade e demais regras estabelecidas pela plataforma e pela legislação aplicável em sua região.</p>
+      </section>
+
+      <section>
+        <h2>12. Serviços de terceiros</h2>
+        <p>O funcionamento do bot poderá depender de plataformas e serviços de terceiros. Esses serviços possuem suas próprias políticas de privacidade e práticas de tratamento de dados.</p>
+        <p>O ARK IA Bot não controla integralmente as práticas de privacidade adotadas por serviços externos.</p>
+      </section>
+
+      <section>
+        <h2>13. Alterações nesta Política</h2>
+        <p>Esta Política de Privacidade poderá ser atualizada para refletir mudanças nas funcionalidades do bot, infraestrutura, integrações ou requisitos legais.</p>
+        <p>A data da versão mais recente será indicada no início deste documento.</p>
+        <p>Quando apropriado, alterações relevantes poderão ser comunicadas através dos canais oficiais do projeto.</p>
+      </section>
+
+      <section>
+        <h2>14. Independência do projeto</h2>
+        <p>O ARK IA Bot é um projeto independente e, salvo indicação expressa em contrário, não possui vínculo oficial, parceria, patrocínio ou endosso da Wildcard, Studio Wildcard, Snail Games ou Discord.</p>
+        <p>ARK, ARK: Survival Ascended, Discord e outras marcas mencionadas pertencem aos seus respectivos proprietários.</p>
+      </section>
+
+      <section id="contato">
+        <h2>15. Contato e solicitações de privacidade</h2>
+        <p>Dúvidas sobre esta Política, solicitações relacionadas a dados pessoais, pedidos de exclusão ou comunicações sobre segurança poderão ser encaminhadas aos responsáveis pelo ARK IA Bot.</p>
+
+        <div class="contact">
+          <p><strong>Responsável:</strong> <span class="placeholder">[SEU NOME OU NOME DO PROJETO]</span></p>
+          <p><strong>Discord de suporte:</strong> <span class="placeholder">[LINK DO SERVIDOR DE SUPORTE]</span></p>
+          <p><strong>E-mail de privacidade:</strong> <span class="placeholder">[E-MAIL DE CONTATO]</span></p>
+          <p><strong>Site:</strong> <span class="placeholder">[SITE DO BOT, SE HOUVER]</span></p>
+        </div>
+      </section>
+
+      <div class="notice">
+        <strong>ARK IA Bot</strong> — Privacidade e segurança para uma experiência inteligente nas comunidades ARK: Survival Ascended.
+      </div>
+    </main>
+
+    <footer>
+      © 2026 <span class="brand">ARK IA Bot</span>. Projeto independente. Todas as marcas pertencem aos seus respectivos proprietários.
+    </footer>
+  </div>
+</body>
+</html>
