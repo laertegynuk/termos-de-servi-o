@@ -1,18 +1,18 @@
 {
   "product": "SkynetARK",
   "channel": "stable",
-  "latest_version": "10.3.6",
-  "bundle_sha256": "6c55d6486b461095d0005cf32867e20c9981cbf4b80b841b8a3d3303732d82cd",
+  "latest_version": "10.3.7",
+  "bundle_sha256": "77dcdf47991737890314816c36ad86c51825a469fdf4f70ddbb59bad99031825",
   "bundle_parts": [
-    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/stable/v10.3.6/part-000.b64",
-    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/stable/v10.3.6/part-001.b64",
-    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/stable/v10.3.6/part-002.b64",
-    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/stable/v10.3.6/part-003.b64",
-    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/stable/v10.3.6/part-004.b64",
-    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/stable/v10.3.6/part-005.b64",
-    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/stable/v10.3.6/part-006.b64"
+    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/stable/v10.3.7/part-000.b64",
+    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/stable/v10.3.7/part-001.b64",
+    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/stable/v10.3.7/part-002.b64",
+    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/stable/v10.3.7/part-003.b64",
+    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/stable/v10.3.7/part-004.b64",
+    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/stable/v10.3.7/part-005.b64",
+    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/stable/v10.3.7/part-006.b64"
   ],
-  "release_url": "https://github.com/laertegynuk/termos-de-servi-o/tree/main/skynetark-updates/update/stable/v10.3.6",
-  "notes": "SkynetARK v10.3.6 — corrige painel/configuração de backups e mantém updater transacional.",
-  "published_at": "2026-10-03T22:53:53Z"
+  "release_url": "https://github.com/laertegynuk/termos-de-servi-o/tree/main/skynetark-updates/update/stable/v10.3.7",
+  "notes": "SkynetARK v10.3.7 — corrige confirmação de update pelo Discord e mantém updater transacional.",
+  "published_at": "2026-10-03T23:15:13Z"
 }
