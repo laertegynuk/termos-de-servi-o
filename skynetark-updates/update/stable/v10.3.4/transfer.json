@@ -1,0 +1,43 @@
+{
+  "version": "10.3.4",
+  "bundle_size": 3131193,
+  "bundle_sha256": "62821804e0025fe5bb9857f8d988e63e4201afabe934b0f26a619c686be71818",
+  "payload_sha256": "765f40ac5a72516e31d0f3e3228b74a11b56be916f886a154deb37d8f5bdb40d",
+  "parts": [
+    {
+      "name": "part-000.b64",
+      "bytes": 450000,
+      "sha256": "ae6e015589eafe92c8455a6509c4e4a29220fcca4a104d16469c937e474d7265"
+    },
+    {
+      "name": "part-001.b64",
+      "bytes": 450000,
+      "sha256": "6a6d7a10ba0ccc8e6256cfb1448652bb83c505924fd4cd092ea961ea78a27ad4"
+    },
+    {
+      "name": "part-002.b64",
+      "bytes": 450000,
+      "sha256": "29bdb7195004b15ce9be45a67da3cb5c849640b0b376150e0da4fdf94f10cce0"
+    },
+    {
+      "name": "part-003.b64",
+      "bytes": 450000,
+      "sha256": "2b90c3094ff358ed5b44c3f75218b478ad35fb8577a32dc9346ee754a94b5b9c"
+    },
+    {
+      "name": "part-004.b64",
+      "bytes": 450000,
+      "sha256": "4d2e7468d7a04275b8cf2830455f56421b30818413067f8e7b4d40c8eb6ca44c"
+    },
+    {
+      "name": "part-005.b64",
+      "bytes": 450000,
+      "sha256": "1d04ed2c068fe0018884f887f1287bd0a5b418e9880053c04074aa8ab96dc26a"
+    },
+    {
+      "name": "part-006.b64",
+      "bytes": 431193,
+      "sha256": "60cb2cacdb1bd70f67467f61507edbac3262480de63e2d37c1aaf46b211b3ecd"
+    }
+  ]
+}
