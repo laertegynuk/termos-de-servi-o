@@ -1,0 +1,18 @@
+{
+  "product": "SkynetARK",
+  "channel": "stable",
+  "latest_version": "10.3.4",
+  "bundle_sha256": "62821804e0025fe5bb9857f8d988e63e4201afabe934b0f26a619c686be71818",
+  "bundle_parts": [
+    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/stable/v10.3.4/part-000.b64",
+    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/stable/v10.3.4/part-001.b64",
+    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/stable/v10.3.4/part-002.b64",
+    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/stable/v10.3.4/part-003.b64",
+    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/stable/v10.3.4/part-004.b64",
+    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/stable/v10.3.4/part-005.b64",
+    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/stable/v10.3.4/part-006.b64"
+  ],
+  "release_url": "https://github.com/laertegynuk/termos-de-servi-o/tree/main/skynetark-updates/update/stable/v10.3.4",
+  "notes": "SkynetARK v10.3.4 — zero-config signed updates",
+  "published_at": "2026-10-03T20:20:04Z"
+}
