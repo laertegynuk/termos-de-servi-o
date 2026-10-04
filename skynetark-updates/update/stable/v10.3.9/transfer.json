@@ -1,0 +1,52 @@
+{
+  "product": "SkynetARK",
+  "version": "10.3.9",
+  "bundle_size": 3113990,
+  "bundle_sha256": "BDACB9E776554E048AEEA3E6C4B84326411A9099F0A0AB14838E936123F1958F",
+  "payload_sha256": "69BD0122B0506C3C57E3B26AEC2440CC9A82B32D04037F7BCBFA9DCFCF2175CC",
+  "updater_sha256": "5FF1E30790B86899F3AC6498900001E2EBA164ED1331AD9B8FA0681C0EE2E8BA",
+  "parts": [
+    {
+      "name": "part-000.b64",
+      "bytes": 450000,
+      "sha256": "B9FC7B919A39E8B0A92F9CA80EA64DE11805B4EF3E94FAC8E270F1AA79A0BCA9",
+      "url": "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/stable/v10.3.9/part-000.b64"
+    },
+    {
+      "name": "part-001.b64",
+      "bytes": 450000,
+      "sha256": "91892BF20AF2F3F5B2A89FD72B3E3AA3FDF020CB6676D872FE4C89F7679D0403",
+      "url": "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/stable/v10.3.9/part-001.b64"
+    },
+    {
+      "name": "part-002.b64",
+      "bytes": 450000,
+      "sha256": "A84F363934FC3C6E1BB8FDCE1432456BBE32F81CDC075A52F1B2A2946C82B42A",
+      "url": "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/stable/v10.3.9/part-002.b64"
+    },
+    {
+      "name": "part-003.b64",
+      "bytes": 450000,
+      "sha256": "E7717E6739FAF736AD1AC47A8A453A4930EC560DD2E90F31FEADCCA8CEA9A8E7",
+      "url": "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/stable/v10.3.9/part-003.b64"
+    },
+    {
+      "name": "part-004.b64",
+      "bytes": 450000,
+      "sha256": "2D07491D5142D98310F733DB7CC2E09C095678538C0FFD88FDDF9C6D17739841",
+      "url": "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/stable/v10.3.9/part-004.b64"
+    },
+    {
+      "name": "part-005.b64",
+      "bytes": 450000,
+      "sha256": "77599C9A247B90459C00DD775298120DA36D32F455729D456A61A952937D5626",
+      "url": "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/stable/v10.3.9/part-005.b64"
+    },
+    {
+      "name": "part-006.b64",
+      "bytes": 413990,
+      "sha256": "31602B5400D315578EF58013F585D52BD6DACA8E8325E40E0CC4E4144E15C79D",
+      "url": "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/stable/v10.3.9/part-006.b64"
+    }
+  ]
+}
