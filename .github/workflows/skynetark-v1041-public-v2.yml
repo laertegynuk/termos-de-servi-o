@@ -1,0 +1,83 @@
+name: SkynetARK - Publish v10.4.1 v2 channel
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/skynetark-v1041-public-v2.yml'
+permissions:
+  contents: write
+jobs:
+  publish:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: true
+      - name: Publish exact signed v10.4.1 bundle
+        shell: bash
+        run: |
+          set -euo pipefail
+          URL='https://sdmntprbrazilsouth.oaiusercontent.com/files/00000000-7d20-820e-868b-2e77bbdd4aad/raw?se=2026-10-04T13%3A40%3A14Z&sp=r&sv=2026-02-06&sr=b&scid=14854bcb-7993-5280-8f20-6335ebad92e2&skoid=127c13cb-e695-43ea-b6b2-0a863d41dbf7&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-10-04T12%3A52%3A08Z&ske=2026-10-05T12%3A52%3A08Z&sks=b&skv=2026-02-06&sig=Q0JkniIYWkJsm9Ljj9DaaLehL/LRpK57vbaht4d8z0A%3D'
+          ART=/tmp/v1041-artifact.zip
+          BUNDLE=/tmp/SkynetARK_v10.4.1_LocalUpdateBundle_LaerteGyn.zip
+          curl --fail-with-body --silent --show-error --location "$URL" --output "$ART"
+          test "$(sha256sum "$ART" | awk '{print toupper($1)}')" = "EA4A8ECC254EA3F68B4A17D36B5A254AB03916FAFC25353E38C4625077C6CE94"
+          unzip -tq "$ART" >/dev/null
+          unzip -p "$ART" SkynetARK_v10.4.1_LocalUpdateBundle_LaerteGyn.zip > "$BUNDLE"
+          test "$(sha256sum "$BUNDLE" | awk '{print toupper($1)}')" = "AF7CBE9DA9E0C4ED2C80410EE071FA4B274B983833F2E475048D94B0D0E46B3D"
+          python - <<'PY'
+          import zipfile,json,hashlib,io
+          raw=open('/tmp/SkynetARK_v10.4.1_LocalUpdateBundle_LaerteGyn.zip','rb').read()
+          with zipfile.ZipFile(io.BytesIO(raw)) as z:
+              assert z.testzip() is None
+              m=json.loads(z.read('manifest.json'))
+              payload=z.read('payload.zip')
+          assert m['product']=='SkynetARK'
+          assert m['version']=='10.4.1'
+          assert hashlib.sha256(payload).hexdigest().upper()=='C46FF470B9B048534F07D5FED8986DD779C51E20D464E5F9079FB371A595FBD7'
+          assert hashlib.sha256(payload).hexdigest().lower()==m['sha256'].lower()
+          with zipfile.ZipFile(io.BytesIO(payload)) as pz:
+              assert pz.read('SkynetARK/VERSION').decode('utf-8-sig').strip()=='10.4.1'
+              assert hashlib.sha256(pz.read('SkynetARK/tools/SkynetARK_Update.exe')).hexdigest().upper()=='DC22C3A687A407AB9E906963F54D2DBEDC211BE2C1496629E87349BD2F05C8B7'
+          print('V1041_PUBLIC_SOURCE_VERIFIED=OK')
+          PY
+          OUT='skynetark-updates/update/v2/stable/v10.4.1'
+          rm -rf "$OUT"
+          mkdir -p "$OUT"
+          python - <<'PY'
+          import base64,pathlib,json
+          b=pathlib.Path('/tmp/SkynetARK_v10.4.1_LocalUpdateBundle_LaerteGyn.zip').read_bytes()
+          out=pathlib.Path('skynetark-updates/update/v2/stable/v10.4.1')
+          size=500000
+          parts=[]
+          for i in range(0,len(b),size):
+              p=out/f'part-{i//size:03d}.b64'
+              p.write_text(base64.b64encode(b[i:i+size]).decode('ascii'),encoding='ascii')
+              parts.append(f'https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/{p.as_posix()}')
+          manifest={
+            'product':'SkynetARK',
+            'channel':'stable',
+            'latest_version':'10.4.1',
+            'bundle_sha256':'af7cbe9da9e0c4ed2c80410ee071fa4b274b983833f2e475048d94b0d0e46b3d',
+            'bundle_parts':parts,
+            'release_url':'https://github.com/laertegynuk/Projetos-Pessoais/releases/tag/skynetark-v10.4.1',
+            'notes':'SkynetARK v10.4.1 - validacao minima do update pelo Discord no canal v2; mesmo updater transacional da 10.4.0, rollback e restart validados no Windows.',
+            'published_at':'2026-10-04T13:34:21Z'
+          }
+          mf=pathlib.Path('skynetark-updates/update/v2/manifest.json')
+          mf.write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          (out/'SHA256SUMS.txt').write_text(
+              'VERSION=10.4.1\n'
+              'PAYLOAD_SHA256=C46FF470B9B048534F07D5FED8986DD779C51E20D464E5F9079FB371A595FBD7\n'
+              'BUNDLE_SHA256=AF7CBE9DA9E0C4ED2C80410EE071FA4B274B983833F2E475048D94B0D0E46B3D\n'
+              'UPDATER_SHA256=DC22C3A687A407AB9E906963F54D2DBEDC211BE2C1496629E87349BD2F05C8B7\n'
+              'PUBLIC_KEY_B64=XzCXEP9CcVrgJszvZgk6hsxItg0HCzFUCun7fbVGn0Y=\n'
+              'ED25519_SIGNATURE=OK\n',encoding='utf-8')
+          print('PARTS='+str(len(parts)))
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add skynetark-updates/update/v2
+          git commit -m "SkynetARK: publish v10.4.1 stable v2"
+          git push
