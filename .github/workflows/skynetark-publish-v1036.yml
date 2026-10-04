@@ -1,9 +1,9 @@
-name: SkynetARK Publish v10.3.7
+name: SkynetARK Publish v10.3.9
 on:
   push:
     branches: [ main ]
     paths:
-      - 'skynetark-updates/publish-trigger-v1037.txt'
+      - 'skynetark-updates/publish-trigger-v1039.txt'
 permissions:
   contents: write
 concurrency:
@@ -32,10 +32,10 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          URL='https://ucaf508a4bb96ab746f20215cc42.dl.dropboxusercontent.com/cd/0/get/DJU-FskNSj6XLlsd4cpuAJwMtcR2ZYG6UIvS06ozOX95ToseQ-Xm4ZUdmsIIsJ0LlUdzICb7v5setOHoisgPBn3_zY2XgRo99zWuCOY5YxXSsiDNU2UQggBn39wAU1ClDCdXi3iS_lfYJo0I24tWDlbkBMeWhZsbKwf9HlNFlJRg5A/file?c_luid=d1952b35'
+          URL='https://uc68c7c2835cc65012ec67c31335.dl.dropboxusercontent.com/cd/0/get/DJWKJ8E3s5TWQhuhW4oKzxOlwJTNq_K70uKFMaZZj8MlyPNK0jxncMrQzbWFZRA1qhe1UFGAcRbuHmpNLeNC5uo64D2EmWGS520XoYLbBXkOd1Ac4SDRE__3fyk2xGJRfAdR192_sN-x67PtfpqRmk9xge6G48NbHRPEbNGBJmv08A/file?c_luid=d1952b35'
           curl --fail-with-body --silent --show-error --location "$URL" --output /tmp/bundle.zip
-          test "$(stat -c '%s' /tmp/bundle.zip)" = "3108743"
-          test "$(sha256sum /tmp/bundle.zip | awk '{print toupper($1)}')" = "77DCDF47991737890314816C36AD86C51825A469FDF4F70DDBB59BAD99031825"
+          test "$(stat -c '%s' /tmp/bundle.zip)" = "3113990"
+          test "$(sha256sum /tmp/bundle.zip | awk '{print toupper($1)}')" = "BDACB9E776554E048AEEA3E6C4B84326411A9099F0A0AB14838E936123F1958F"
 
       - name: Verify signed release independently
         shell: bash
@@ -47,19 +47,20 @@ jobs:
           with zipfile.ZipFile(io.BytesIO(raw)) as z:
               assert z.testzip() is None
               m=json.loads(z.read('manifest.json')); payload=z.read('payload.zip')
-          assert m['product']=='SkynetARK' and m['version']=='10.3.7'
+          assert m['product']=='SkynetARK' and m['version']=='10.3.9'
           psha=hashlib.sha256(payload).hexdigest()
-          assert psha.upper()=='0B8048C007D3DBBA40ABC384FFF503D0F0979FEAE13E184FFA5C45989B46E5AE'
+          assert psha.upper()=='69BD0122B0506C3C57E3B26AEC2440CC9A82B32D04037F7BCBFA9DCFCF2175CC'
           assert psha.lower()==m['sha256'].lower()
-          msg=f"SkynetARK\n10.3.7\n{psha.lower()}\npayload.zip".encode()
+          msg=f"SkynetARK\n10.3.9\n{psha.lower()}\npayload.zip".encode()
           Ed25519PublicKey.from_public_bytes(base64.b64decode('XzCXEP9CcVrgJszvZgk6hsxItg0HCzFUCun7fbVGn0Y=')).verify(base64.b64decode(m['signature']),msg)
           with zipfile.ZipFile(io.BytesIO(payload)) as pz:
-              assert pz.read('SkynetARK/VERSION').decode('utf-8-sig').strip()=='10.3.7'
-              assert hashlib.sha256(pz.read('SkynetARK/tools/SkynetARK_Update.exe')).hexdigest().upper()=='CEDD6D834A1E196F1706C0164C6C54B0FE1AB597308C20E718CF0BE6A6173C7D'
+              assert pz.read('SkynetARK/VERSION').decode('utf-8-sig').strip()=='10.3.9'
+              assert hashlib.sha256(pz.read('SkynetARK/tools/SkynetARK_Update.exe')).hexdigest().upper()=='5FF1E30790B86899F3AC6498900001E2EBA164ED1331AD9B8FA0681C0EE2E8BA'
               broker=pz.read('SkynetARK/core/discord_command_broker.py').decode('utf-8')
-              assert 'WHERE token_hash=?",(th,)).fetchone()' in broker
-              assert '(th))' not in broker
-              assert 'background_tasks.add_task(_background_update,VERSION,audit_event)' in broker
+              backup=pz.read('SkynetARK/core/backup_manager.py').decode('utf-8')
+              assert 'atualização remota está desativada no Core' in broker
+              assert 'queue_maintenance' in backup
+              assert 'skynet-backup-maintenance' in backup
           print('PUBLICATION_VERIFICATION=OK')
           PY
 
@@ -70,7 +71,7 @@ jobs:
           from pathlib import Path
           import base64,hashlib,json,datetime
           raw=Path('/tmp/bundle.zip').read_bytes()
-          out=Path('skynetark-updates/update/stable/v10.3.7')
+          out=Path('skynetark-updates/update/stable/v10.3.9')
           out.mkdir(parents=True,exist_ok=True)
           for p in out.glob('part-*.b64'): p.unlink()
           parts=[]
@@ -79,37 +80,27 @@ jobs:
               chunk=raw[i:i+chunk_size]
               name=f'part-{i//chunk_size:03d}.b64'
               (out/name).write_text(base64.b64encode(chunk).decode('ascii')+'\n',encoding='ascii')
-              parts.append({
-                  'name':name,
-                  'bytes':len(chunk),
-                  'sha256':hashlib.sha256(chunk).hexdigest().upper(),
-                  'url':f'https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/stable/v10.3.7/{name}'
-              })
-          transfer={
-              'product':'SkynetARK','version':'10.3.7',
-              'bundle_size':len(raw),
-              'bundle_sha256':hashlib.sha256(raw).hexdigest().upper(),
-              'payload_sha256':'0B8048C007D3DBBA40ABC384FFF503D0F0979FEAE13E184FFA5C45989B46E5AE',
-              'updater_sha256':'CEDD6D834A1E196F1706C0164C6C54B0FE1AB597308C20E718CF0BE6A6173C7D',
-              'parts':parts,
-          }
+              parts.append({'name':name,'bytes':len(chunk),'sha256':hashlib.sha256(chunk).hexdigest().upper(),
+                            'url':f'https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/stable/v10.3.9/{name}'})
+          transfer={'product':'SkynetARK','version':'10.3.9','bundle_size':len(raw),
+                    'bundle_sha256':hashlib.sha256(raw).hexdigest().upper(),
+                    'payload_sha256':'69BD0122B0506C3C57E3B26AEC2440CC9A82B32D04037F7BCBFA9DCFCF2175CC',
+                    'updater_sha256':'5FF1E30790B86899F3AC6498900001E2EBA164ED1331AD9B8FA0681C0EE2E8BA','parts':parts}
           (out/'transfer.json').write_text(json.dumps(transfer,indent=2)+'\n',encoding='utf-8')
           (out/'SHA256SUMS.txt').write_text(
-              'VERSION=10.3.7\n'
-              'PAYLOAD_SHA256=0B8048C007D3DBBA40ABC384FFF503D0F0979FEAE13E184FFA5C45989B46E5AE\n'
-              'BUNDLE_SHA256=77DCDF47991737890314816C36AD86C51825A469FDF4F70DDBB59BAD99031825\n'
-              'UPDATER_SHA256=CEDD6D834A1E196F1706C0164C6C54B0FE1AB597308C20E718CF0BE6A6173C7D\n'
+              'VERSION=10.3.9\n'
+              'PAYLOAD_SHA256=69BD0122B0506C3C57E3B26AEC2440CC9A82B32D04037F7BCBFA9DCFCF2175CC\n'
+              'BUNDLE_SHA256=BDACB9E776554E048AEEA3E6C4B84326411A9099F0A0AB14838E936123F1958F\n'
+              'UPDATER_SHA256=5FF1E30790B86899F3AC6498900001E2EBA164ED1331AD9B8FA0681C0EE2E8BA\n'
               'PUBLIC_KEY_B64=XzCXEP9CcVrgJszvZgk6hsxItg0HCzFUCun7fbVGn0Y=\n'
               'ED25519_SIGNATURE=OK\n',encoding='utf-8')
-          manifest={
-              'product':'SkynetARK','channel':'stable','latest_version':'10.3.7',
-              'bundle_sha256':'77dcdf47991737890314816c36ad86c51825a469fdf4f70ddbb59bad99031825',
-              'bundle_parts':[x['url'] for x in parts],
-              'release_url':'https://github.com/laertegynuk/termos-de-servi-o/tree/main/skynetark-updates/update/stable/v10.3.7',
-              'notes':'SkynetARK v10.3.7 — corrige confirmação de update pelo Discord e mantém updater transacional.',
-              'published_at':datetime.datetime.now(datetime.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')
-          }
-          Path('/tmp/manifest-v1037.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          manifest={'product':'SkynetARK','channel':'stable','latest_version':'10.3.9',
+                    'bundle_sha256':'bdacb9e776554e048aeea3e6c4b84326411a9099f0a0ab14838e936123f1958f',
+                    'bundle_parts':[x['url'] for x in parts],
+                    'release_url':'https://github.com/laertegynuk/termos-de-servi-o/tree/main/skynetark-updates/update/stable/v10.3.9',
+                    'notes':'SkynetARK v10.3.9 — corrige Salvar e Migrar, reativa updates pelo Discord e endurece restart transacional.',
+                    'published_at':datetime.datetime.now(datetime.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')}
+          Path('/tmp/manifest-v1039.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
           print('PARTS='+str(len(parts)))
           PY
 
@@ -119,15 +110,15 @@ jobs:
           set -euo pipefail
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add skynetark-updates/update/stable/v10.3.7
-          git commit -m 'Publish SkynetARK v10.3.7 signed update files'
+          git add skynetark-updates/update/stable/v10.3.9
+          git commit -m 'Publish SkynetARK v10.3.9 signed update files'
           git push origin main
 
       - name: Activate manifest last
         shell: bash
         run: |
           set -euo pipefail
-          cp /tmp/manifest-v1037.json skynetark-updates/update/manifest.json
+          cp /tmp/manifest-v1039.json skynetark-updates/update/manifest.json
           git add skynetark-updates/update/manifest.json
-          git commit -m 'Activate SkynetARK v10.3.7 stable update'
+          git commit -m 'Activate SkynetARK v10.3.9 stable update'
           git push origin main
