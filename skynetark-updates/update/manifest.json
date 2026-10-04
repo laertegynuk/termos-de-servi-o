@@ -1,10 +1,18 @@
 {
   "product": "SkynetARK",
   "channel": "stable",
-  "latest_version": "10.3.1",
-  "asset_url": "https://github.com/laertegynuk/Projetos-Pessoais/releases/download/skynetark-v10.3.1/SkynetARK_v10.3.1_LocalUpdateBundle_LaerteGyn.zip",
-  "bundle_sha256": "2f53f9a664a07dc15fac91c7d069a95828ede2c0cfc2ebd05a976b1e7d961f8e",
-  "release_url": "https://github.com/laertegynuk/Projetos-Pessoais/releases/tag/skynetark-v10.3.1",
-  "notes": "Canal stable temporariamente congelado em 10.3.1 durante validação do novo Update Manager transacional v10.3.8.",
-  "published_at": "2026-10-03T23:58:30Z"
+  "latest_version": "10.3.9",
+  "bundle_sha256": "bdacb9e776554e048aeea3e6c4b84326411a9099f0a0ab14838e936123f1958f",
+  "bundle_parts": [
+    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/stable/v10.3.9/part-000.b64",
+    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/stable/v10.3.9/part-001.b64",
+    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/stable/v10.3.9/part-002.b64",
+    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/stable/v10.3.9/part-003.b64",
+    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/stable/v10.3.9/part-004.b64",
+    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/stable/v10.3.9/part-005.b64",
+    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/stable/v10.3.9/part-006.b64"
+  ],
+  "release_url": "https://github.com/laertegynuk/termos-de-servi-o/tree/main/skynetark-updates/update/stable/v10.3.9",
+  "notes": "SkynetARK v10.3.9 — corrige Salvar e Migrar, reativa updates pelo Discord e endurece restart transacional.",
+  "published_at": "2026-10-04T01:29:26Z"
 }
