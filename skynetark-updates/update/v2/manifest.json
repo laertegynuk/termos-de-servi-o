@@ -1,18 +1,18 @@
 {
   "product": "SkynetARK",
   "channel": "stable",
-  "latest_version": "10.5.1",
-  "bundle_sha256": "ab7e77e362d1822825d20677defd35fe9ea415362f51ffe3404717c528ba426e",
+  "latest_version": "10.5.2",
+  "bundle_sha256": "6187faa56a44cccd0171669561e197f1278fa3342e52715f40dcac6f5c93df36",
   "bundle_parts": [
-    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/v2/stable/v10.5.1/part-000.b64",
-    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/v2/stable/v10.5.1/part-001.b64",
-    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/v2/stable/v10.5.1/part-002.b64",
-    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/v2/stable/v10.5.1/part-003.b64",
-    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/v2/stable/v10.5.1/part-004.b64",
-    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/v2/stable/v10.5.1/part-005.b64",
-    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/v2/stable/v10.5.1/part-006.b64"
+    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/v2/stable/v10.5.2/part-000.b64",
+    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/v2/stable/v10.5.2/part-001.b64",
+    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/v2/stable/v10.5.2/part-002.b64",
+    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/v2/stable/v10.5.2/part-003.b64",
+    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/v2/stable/v10.5.2/part-004.b64",
+    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/v2/stable/v10.5.2/part-005.b64",
+    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/v2/stable/v10.5.2/part-006.b64"
   ],
-  "release_url": "https://github.com/laertegynuk/Projetos-Pessoais/releases/tag/skynetark-v10.5.1",
-  "notes": "SkynetARK v10.5.1 - catalogo confiavel de diagnosticos Windows, validacao PowerShell antes da confirmacao, revalidacao no Agent e reparo com nova confirmacao obrigatoria.",
-  "published_at": "2026-10-04T17:34:22Z"
+  "release_url": "https://github.com/laertegynuk/Projetos-Pessoais/releases/tag/skynetark-v10.5.2",
+  "notes": "SkynetARK v10.5.2 - consulta de RAM estruturada, sem pergunta textual de permissao; um sim apenas prepara nova acao e continua exigindo CONFIRMAR com SHA.",
+  "published_at": "2026-10-04T19:20:54Z"
 }
