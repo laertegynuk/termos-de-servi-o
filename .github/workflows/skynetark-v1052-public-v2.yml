@@ -1,0 +1,86 @@
+name: SkynetARK - Publish v10.5.2 v2 channel
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/skynetark-v1052-public-v2.yml'
+permissions:
+  contents: write
+jobs:
+  publish:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: true
+      - name: Publish exact signed v10.5.2 bundle
+        shell: bash
+        run: |
+          set -euo pipefail
+          URL='https://sdmntprbrazilsouth.oaiusercontent.com/files/00000000-3bc8-820e-bd93-a262f4be63fc/raw?se=2026-10-04T19%3A26%3A31Z&sp=r&sv=2026-02-06&sr=b&scid=90448615-eb0b-5fda-9b98-c3a774a37f20&skoid=127c13cb-e695-43ea-b6b2-0a863d41dbf7&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-10-04T13%3A34%3A44Z&ske=2026-10-05T13%3A34%3A44Z&sks=b&skv=2026-02-06&sig=lShtjwJ5C3t35JuGwmFbhKYPyALd2/YcY3mR/41hbcY%3D'
+          ART=/tmp/v1052-artifact.zip
+          BUNDLE=/tmp/SkynetARK_v10.5.2_LocalUpdateBundle_LaerteGyn.zip
+          curl --fail-with-body --silent --show-error --location "$URL" --output "$ART"
+          test "$(sha256sum "$ART" | awk '{print toupper($1)}')" = "49F6EB499896D6A9255C1D5BA5E7FB162920E237E3B36B182C965B51642EF9B3"
+          unzip -tq "$ART" >/dev/null
+          unzip -p "$ART" SkynetARK_v10.5.2_LocalUpdateBundle_LaerteGyn.zip > "$BUNDLE"
+          test "$(sha256sum "$BUNDLE" | awk '{print toupper($1)}')" = "6187FAA56A44CCCD0171669561E197F1278FA3342E52715F40DCAC6F5C93DF36"
+          python - <<'PY'
+          import zipfile,json,hashlib,io
+          raw=open('/tmp/SkynetARK_v10.5.2_LocalUpdateBundle_LaerteGyn.zip','rb').read()
+          with zipfile.ZipFile(io.BytesIO(raw)) as z:
+              assert z.testzip() is None
+              m=json.loads(z.read('manifest.json'))
+              payload=z.read('payload.zip')
+          assert m['product']=='SkynetARK'
+          assert m['version']=='10.5.2'
+          assert hashlib.sha256(payload).hexdigest().upper()=='7B491173EB67B031F614B863CABE6FED708C7130D42591E747FC2640D96E64E3'
+          assert hashlib.sha256(payload).hexdigest().lower()==m['sha256'].lower()
+          with zipfile.ZipFile(io.BytesIO(payload)) as pz:
+              assert pz.read('SkynetARK/VERSION').decode('utf-8-sig').strip()=='10.5.2'
+              assert hashlib.sha256(pz.read('SkynetARK/tools/SkynetARK_Update.exe')).hexdigest().upper()=='DC22C3A687A407AB9E906963F54D2DBEDC211BE2C1496629E87349BD2F05C8B7'
+              assert b'memory.system' in pz.read('SkynetARK/core/v1052_windows_tools.py')
+              assert b'FOLLOWUP-CATALOG' in pz.read('SkynetARK/core/v1052_local_ai.py')
+          print('V1052_PUBLIC_SOURCE_VERIFIED=OK')
+          PY
+          OUT='skynetark-updates/update/v2/stable/v10.5.2'
+          rm -rf "$OUT"
+          mkdir -p "$OUT"
+          python - <<'PY'
+          import base64,pathlib,json
+          b=pathlib.Path('/tmp/SkynetARK_v10.5.2_LocalUpdateBundle_LaerteGyn.zip').read_bytes()
+          out=pathlib.Path('skynetark-updates/update/v2/stable/v10.5.2')
+          size=500000
+          parts=[]
+          for i in range(0,len(b),size):
+              p=out/f'part-{i//size:03d}.b64'
+              p.write_text(base64.b64encode(b[i:i+size]).decode('ascii'),encoding='ascii')
+              parts.append(f'https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/{p.as_posix()}')
+          manifest={
+            'product':'SkynetARK',
+            'channel':'stable',
+            'latest_version':'10.5.2',
+            'bundle_sha256':'6187faa56a44cccd0171669561e197f1278fa3342e52715f40dcac6f5c93df36',
+            'bundle_parts':parts,
+            'release_url':'https://github.com/laertegynuk/Projetos-Pessoais/releases/tag/skynetark-v10.5.2',
+            'notes':'SkynetARK v10.5.2 - consulta de RAM estruturada, sem pergunta textual de permissao; um sim apenas prepara nova acao e continua exigindo CONFIRMAR com SHA.',
+            'published_at':'2026-10-04T19:20:54Z'
+          }
+          mf=pathlib.Path('skynetark-updates/update/v2/manifest.json')
+          mf.parent.mkdir(parents=True,exist_ok=True)
+          mf.write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          (out/'SHA256SUMS.txt').write_text(
+              'VERSION=10.5.2\n'
+              'PAYLOAD_SHA256=7B491173EB67B031F614B863CABE6FED708C7130D42591E747FC2640D96E64E3\n'
+              'BUNDLE_SHA256=6187FAA56A44CCCD0171669561E197F1278FA3342E52715F40DCAC6F5C93DF36\n'
+              'UPDATER_SHA256=DC22C3A687A407AB9E906963F54D2DBEDC211BE2C1496629E87349BD2F05C8B7\n'
+              'PUBLIC_KEY_B64=XzCXEP9CcVrgJszvZgk6hsxItg0HCzFUCun7fbVGn0Y=\n'
+              'ED25519_SIGNATURE=OK\n',encoding='utf-8')
+          print('PARTS='+str(len(parts)))
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add skynetark-updates/update/v2
+          git commit -m "SkynetARK: publish v10.5.2 stable v2"
+          git push
