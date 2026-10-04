@@ -1,6 +1,6 @@
 {
   "product": "SkynetARK",
-  "channel": "stable",
+  "channel": "maintenance",
   "latest_version": "10.3.9",
   "bundle_sha256": "bdacb9e776554e048aeea3e6c4b84326411a9099f0a0ab14838e936123f1958f",
   "bundle_parts": [
@@ -13,6 +13,6 @@
     "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/stable/v10.3.9/part-006.b64"
   ],
   "release_url": "https://github.com/laertegynuk/termos-de-servi-o/tree/main/skynetark-updates/update/stable/v10.3.9",
-  "notes": "SkynetARK v10.3.9 — corrige Salvar e Migrar, reativa updates pelo Discord e endurece restart transacional.",
+  "notes": "CANAL PAUSADO PARA MANUTENCAO: atualizacoes remotas temporariamente bloqueadas ate a correcao do updater.",
   "published_at": "2026-10-04T01:29:26Z"
 }
