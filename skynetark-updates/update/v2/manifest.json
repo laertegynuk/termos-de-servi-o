@@ -1,18 +1,18 @@
 {
   "product": "SkynetARK",
   "channel": "stable",
-  "latest_version": "10.5.3",
-  "bundle_sha256": "48f808f4aad982f13e99cff1dd31c1a58cdba6094457b2dc326fef19da0b66b3",
+  "latest_version": "10.5.4",
+  "bundle_sha256": "21e2ce4241ed6d5cd8a150bb9399c12f01ae53ad7b331d5d07b7da5f71039703",
   "bundle_parts": [
-    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/v2/stable/v10.5.3/part-000.b64",
-    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/v2/stable/v10.5.3/part-001.b64",
-    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/v2/stable/v10.5.3/part-002.b64",
-    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/v2/stable/v10.5.3/part-003.b64",
-    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/v2/stable/v10.5.3/part-004.b64",
-    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/v2/stable/v10.5.3/part-005.b64",
-    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/v2/stable/v10.5.3/part-006.b64"
+    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/v2/stable/v10.5.4/part-000.b64",
+    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/v2/stable/v10.5.4/part-001.b64",
+    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/v2/stable/v10.5.4/part-002.b64",
+    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/v2/stable/v10.5.4/part-003.b64",
+    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/v2/stable/v10.5.4/part-004.b64",
+    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/v2/stable/v10.5.4/part-005.b64",
+    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/v2/stable/v10.5.4/part-006.b64"
   ],
-  "release_url": "https://github.com/laertegynuk/Projetos-Pessoais/releases/tag/skynetark-v10.5.3",
-  "notes": "SkynetARK v10.5.3 - corrige versao instalada exibida no Discord; broker passa a ler SkynetARK/VERSION e release gate bloqueia divergencia de versao.",
-  "published_at": "2026-10-04T21:27:18Z"
+  "release_url": "https://github.com/laertegynuk/Projetos-Pessoais/releases/tag/skynetark-v10.5.4",
+  "notes": "SkynetARK v10.5.4 - corrige resolucao de mapas ASA no Discord, incluindo scorched earth ASA, nomes _WP e pequenos erros de digitacao.",
+  "published_at": "2026-10-05T17:07:30Z"
 }
