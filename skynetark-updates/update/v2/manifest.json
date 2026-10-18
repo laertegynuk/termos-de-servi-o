@@ -1,18 +1,18 @@
 {
   "product": "SkynetARK",
   "channel": "stable",
-  "latest_version": "10.5.5",
-  "bundle_sha256": "77f9ab794e0c3ebb03874e82b5c59f4642cb896c7a891cb88581fd56ea5c85d7",
+  "latest_version": "10.5.6",
+  "bundle_sha256": "eb47ee507592406d5c17d31fbcc26c19b92d612f1fc88ccc6b2628bca92ec3a8",
   "bundle_parts": [
-    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/v2/stable/v10.5.5/part-000.b64",
-    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/v2/stable/v10.5.5/part-001.b64",
-    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/v2/stable/v10.5.5/part-002.b64",
-    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/v2/stable/v10.5.5/part-003.b64",
-    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/v2/stable/v10.5.5/part-004.b64",
-    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/v2/stable/v10.5.5/part-005.b64",
-    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/v2/stable/v10.5.5/part-006.b64"
+    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/v2/stable/v10.5.6/part-000.b64",
+    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/v2/stable/v10.5.6/part-001.b64",
+    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/v2/stable/v10.5.6/part-002.b64",
+    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/v2/stable/v10.5.6/part-003.b64",
+    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/v2/stable/v10.5.6/part-004.b64",
+    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/v2/stable/v10.5.6/part-005.b64",
+    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/v2/stable/v10.5.6/part-006.b64"
   ],
-  "release_url": "https://github.com/laertegynuk/Projetos-Pessoais/releases/tag/skynetark-v10.5.5",
-  "notes": "SkynetARK v10.5.5 - coleta cognitiva resiliente sob sobrecarga; elimina medição fictícia de 999 GB livres e informa quando o Agent está desatualizado. Mantém as correções do Discord da 10.5.4.",
-  "published_at": "2026-10-11T17:44:58Z"
+  "release_url": "https://github.com/laertegynuk/Projetos-Pessoais/releases/tag/skynetark-v10.5.6",
+  "notes": "SkynetARK v10.5.6 - Guardian independente, alertas CRÍTICOS, correção do coletor cognitivo, tentativa segura de recuperar o Agent e controle de ARK somente por serviço Windows validado; integração nativa ASM/AASM ainda pendente.",
+  "published_at": "2026-10-18T15:55:31Z"
 }
