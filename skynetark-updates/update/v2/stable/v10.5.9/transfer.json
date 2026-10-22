@@ -1,0 +1,42 @@
+{
+  "version": "10.5.9",
+  "size": 3183890,
+  "sha256": "C6216C614F651DD4E8E1F214682279403FDF3B199508B4ABBFDF35D2877EA05D",
+  "parts": [
+    {
+      "name": "part-000.b64",
+      "size": 666669,
+      "sha256": "55f1e0c01696deb67c4d166bb8376b1f738ff1f353a486502ff6ab386d7b4717"
+    },
+    {
+      "name": "part-001.b64",
+      "size": 666669,
+      "sha256": "a8b12ee9f3f494b0b15b301f8c4f578c197ab9260fb2786473e07d611f1679bf"
+    },
+    {
+      "name": "part-002.b64",
+      "size": 666669,
+      "sha256": "1850f990864c26f116bd7c86d12643c226f68bcf005e4ff8bf64b2df24b74ea2"
+    },
+    {
+      "name": "part-003.b64",
+      "size": 666669,
+      "sha256": "a3f4a0a34fae57220867d24f85e8fdde7c137c5349fd148f4be123f99897013a"
+    },
+    {
+      "name": "part-004.b64",
+      "size": 666669,
+      "sha256": "e688917eb6fc155683b30dda744d06e31c4d55b26f711362a848c75718556a3b"
+    },
+    {
+      "name": "part-005.b64",
+      "size": 666669,
+      "sha256": "c382d58d3543373341f714195a015515aaba8570550544538849c699ba9ef68a"
+    },
+    {
+      "name": "part-006.b64",
+      "size": 245189,
+      "sha256": "9c201c5231f025a360f500dc0079acccc71b8fa005b4d4b82f517f405e9f490a"
+    }
+  ]
+}
