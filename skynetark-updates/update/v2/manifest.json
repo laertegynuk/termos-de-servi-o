@@ -1,18 +1,18 @@
 {
   "product": "SkynetARK",
   "channel": "stable",
-  "latest_version": "10.5.12",
-  "bundle_sha256": "af1d0e1af7ff6fce024b6237a38e7fade7fbf0006957d9ea8e3f3dc51b6f415d",
+  "latest_version": "10.5.13",
+  "bundle_sha256": "be618021305248bd1512d71d83351c4b7394ab3a68346e8727a34785a3b57b81",
   "bundle_parts": [
-    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/v2/stable/v10.5.12/part-000.b64",
-    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/v2/stable/v10.5.12/part-001.b64",
-    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/v2/stable/v10.5.12/part-002.b64",
-    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/v2/stable/v10.5.12/part-003.b64",
-    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/v2/stable/v10.5.12/part-004.b64",
-    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/v2/stable/v10.5.12/part-005.b64",
-    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/v2/stable/v10.5.12/part-006.b64"
+    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/v2/stable/v10.5.13/part-000.b64",
+    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/v2/stable/v10.5.13/part-001.b64",
+    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/v2/stable/v10.5.13/part-002.b64",
+    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/v2/stable/v10.5.13/part-003.b64",
+    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/v2/stable/v10.5.13/part-004.b64",
+    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/v2/stable/v10.5.13/part-005.b64",
+    "https://raw.githubusercontent.com/laertegynuk/termos-de-servi-o/main/skynetark-updates/update/v2/stable/v10.5.13/part-006.b64"
   ],
-  "release_url": "https://github.com/laertegynuk/Projetos-Pessoais/releases/tag/skynetark-v10.5.12-rc1",
-  "notes": "Skynet v10.5.12 — correções estruturais para reinicialização planejada e falhas reais, frescor dos dados no Discord e no painel, worker de inventário independente, CPU e RAM exclusivas dos processos da Skynet e transparência do estado de autonomia. Atualizador assinado com rollback. Cenários simulados aprovados; comportamento com gerenciadores reais ainda requer homologação.",
-  "published_at": "2026-10-24T15:22:34Z"
+  "release_url": "https://github.com/laertegynuk/Projetos-Pessoais/releases/tag/skynetark-v10.5.13-rc1",
+  "notes": "Skynet v10.5.13 RC1 — correção estrutural integrada, supervisor de progresso, decisões correlacionadas com eventos de manutenção e crash, fila de ações segura, limite de inferências IA, detecção de dados antigos e consumo próprio da Skynet. Pacote assinado Ed25519 e validado em testes simulados. A recuperação de mapas com ASM/AASM real e operação prolongada ainda não foi homologada.",
+  "published_at": "2026-10-24T17:13:06.800Z"
 }
